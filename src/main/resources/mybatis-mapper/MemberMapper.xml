@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bori.repository.MemberMapper">
+
+    <insert id="insertMember" parameterType="com.bori.model.Member">
+        INSERT INTO products (prod_name, prod_price)
+        VALUES (#{prodName}, #{prodPrice})
+    </insert>
+    
+    <update id="updateExpMember" parameterType="com.bori.model.Member">
+    	UPDATE member SET exp=#{exp} WHERE id=#{id}
+    </update>
+
+</mapper>
