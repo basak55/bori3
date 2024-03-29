@@ -2,12 +2,13 @@ package com.bori.service;
 
 import org.springframework.stereotype.Service;
 
-@Service
-public class typoCheckService {
+import com.bori.model.CheckRequest;
 
-	public void typoCheck(String sentence, String inputText) {
-		
-		sentence.equalsIgnoreCase(inputText);
-		
+@Service
+public class TypoCheckService {
+
+	public boolean typoCheck(CheckRequest checkReq) {		
+//		sentence.equalsIgnoreCase(inputText);
+		return checkReq.getInputText().equalsIgnoreCase(checkReq.getQuest());		
 	}
 }

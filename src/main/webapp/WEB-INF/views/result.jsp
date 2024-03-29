@@ -8,14 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>
-<form action="check" method="post">
-	<input type="text" readOnly value="${sent.sent}" name="quest"/>
-	<input type="text" name="inputText"/>
-	<button type="submit">완료</button>
-</form>
-</div>
-
-
+	<p>${check}</p>
 </body>
 </html>
