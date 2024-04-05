@@ -5,13 +5,41 @@
 
 <mapper namespace="com.bori.repository.MemberMapper">
 
-    <insert id="insertMember" parameterType="com.bori.model.Member">
-        INSERT INTO products (prod_name, prod_price)
-        VALUES (#{prodName}, #{prodPrice})
-    </insert>
-    
-    <update id="updateExpMember" parameterType="com.bori.model.Member">
-    	UPDATE member SET exp=#{exp} WHERE id=#{id}
-    </update>
+    <!-- tb_member 테이블 전체 컬럼 -->
+    <sql id="memberColumns">
+          mno
+        , mid
+        , mpw
+        , name
+        , gender
+        , exp
+        , mintro
+    </sql>
+
+	<insert id="insertMember" parameterType="com.bori.model.MemberRequest">
+		INSERT INTO member (mid, mpw, name, gender, mintro)
+		VALUES (#{mid}, #{mpw}, #{name}, #{gender}, #{mintro})
+	</insert>
+
+	<update id="updateExp" parameterType="Integer">
+		UPDATE member SET exp=exp+30 WHERE mno=#{mno}
+	</update>
+
+	<update id="updateMember" parameterType="com.bori.model.Member">
+		
+	</update>
+
+	<select id="selectById" parameterType="String" resultType="com.bori.model.Member">
+		SELECT * FROM member WHERE mid=#{mid}
+	</select>
+	
+	<select id="selectByMno" parameterType="Integer" resultType="com.bori.model.Member">
+		SELECT * FROM member WHERE mno=#{mno}
+	</select>
+	
+	<select id="countMemberById" parameterType="String" resultType="boolean">
+		SELECT COUNT(*) FROM member WHERE mid=#{mid}
+	</select>
+	
 
 </mapper>

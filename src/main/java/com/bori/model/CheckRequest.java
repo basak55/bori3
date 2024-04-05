@@ -10,5 +10,5 @@ import lombok.Setter;
 public class CheckRequest {
 
 	private String inputText;
-	private String quest;
+	private String quest; // Sentence
 }

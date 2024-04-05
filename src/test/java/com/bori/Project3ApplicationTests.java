@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.bori.model.CheckRequest;
 import com.bori.model.Sentence;
+import com.bori.repository.MemberMapper;
 import com.bori.repository.SentenceMapper;
 import com.bori.service.CalculateAccuracyService;
 import com.bori.service.RandomSentService;
@@ -18,7 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 class Project3ApplicationTests {
 	
 	@Autowired
-	private SentenceMapper sentenceMapper;
+	MemberMapper memberMapper;
+	
+	@Autowired
+	SentenceMapper sentenceMapper;
 	
 	@Autowired
 	RandomSentService randomSentService;
@@ -27,10 +31,15 @@ class Project3ApplicationTests {
 	TypoCheckService typoCheckService;
 	
 	@Test
-	void calculate() {
-		CheckRequest checkReq = CheckRequest.builder().quest("가나다").inputText("가나라").build();
-		log.info("정오: ", typoCheckService);
+	void countMemberById() {
+		log.info("boolean: {}", memberMapper.countMemberById("admin"));
 	}
+	
+//	@Test
+//	void calculate() {
+//		CheckRequest checkReq = CheckRequest.builder().quest("가나다").inputText("가나라").build();
+//		log.info("정오: ", typoCheckService);
+//	}
 
 //	@Test
 //	void contextLoads() {

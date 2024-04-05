@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bori.repository.RecordMapper">
+
+	<update id="visitUpdate" parameterType="Integer">
+		UPDATE record SET visit=visit+1 WHERE mno=#{mno}
+	</update>
+	
+	<update id="recordUpdate" parameterType="com.bori.model.RecordRequest">
+		UPDATE record SET questcount=#{questcount}, playtime=#{playtime}, rno=#{rno} WHERE mno=#{mno}
+	</update>
+</mapper>
